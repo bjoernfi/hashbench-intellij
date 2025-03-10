@@ -31,8 +31,8 @@ public class BenchmarkRun implements Runnable {
             hash = implementation.hash(hash);
         }
 
-        var elapsedMilliseconds = (System.nanoTime() - startTime) / 1_000_000.0;
-        var elapsedSeconds = (elapsedMilliseconds / 1_000.0);
+        var elapsedMilliseconds = (System.nanoTime() - startTime) / 1000000.0;
+        var elapsedSeconds = (elapsedMilliseconds / 1000);
         var hashesPerSecond = iterations / elapsedSeconds;
         this.result = new BenchmarkRunResult(implementation.getClass().getSimpleName(), bytesToHex(hash),
                 elapsedMilliseconds, hashesPerSecond

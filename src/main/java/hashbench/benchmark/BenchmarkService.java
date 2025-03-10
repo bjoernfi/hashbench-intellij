@@ -19,7 +19,7 @@ public final class BenchmarkService {
             new BouncyCastleSHA256()
     );
 
-    private final long ITERATIONS = 2_500_000;
+    private final long ITERATIONS = 2500000;
     private final String INPUT = "mmustermd8L_sA$9";
 
     private final long RUNS_PER_IMPL = 5;
