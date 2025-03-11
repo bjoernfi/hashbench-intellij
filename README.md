@@ -2,7 +2,7 @@
 IntelliJ plugin for benchmarking various SHA-256 implementations.
 
 > [!NOTE]
-> This repository contains supplementary material to the following paper: 
+> This repository contains supplementary material of the following paper: 
 > ...
 
 ## Setup
