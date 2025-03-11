@@ -37,6 +37,8 @@ Before benchmarking, the plugin extracts various properties of the runtime envir
 
 ## Results Format
 
+<details>
+
 ```json
 {
   "runsPerImpl": 5,
@@ -331,7 +333,7 @@ Before benchmarking, the plugin extracts various properties of the runtime envir
   }
 }
 ```
-
+</details>
 
 ## Related tools
 As we have noted in our paper, benchmarks often do not capture the overhead caused by the runtime environment. If you want to see how the overhead affects performance, you can use [hashcat](https://hashcat.net/hashcat/). The options that come closest to the benchmarking performed by this plugin are:
@@ -341,6 +343,8 @@ hashcat -m 1400 -D 1 -b --cpu-affinity=1 -w 1 # SHA2-256, kernel optimization di
 ``` 
 
 Running hashcat with these options on an AMD Ryzen 7 PRO 5850U gave the following results:
+
+<details>
 
 ```
 hashcat (v6.2.6) starting in benchmark mode
@@ -363,9 +367,11 @@ Speed.#1.........: 24930.3 kH/s (1.09ms) @ Accel:32 Loops:64 Thr:1 Vec:8
 Started: Wed Nov  6 22:21:43 2024
 Stopped: Wed Nov  6 22:21:49 2024
 ```
+</details>
 
 While running the plugin gave these results:
 
+<details>
 ```json
 {
   "runsPerImpl": 5,
@@ -394,5 +400,6 @@ While running the plugin gave these results:
   "sysInfo": {}
 }
 ```
+</details>
 
 When comparing the plugin (15.4 MH/s, JRESHA256) with hashcat (24.93 MH/s), we see that hashcat can be roughly 60% faster. We also ran hashcat with optimized kernel code and observed that it was roughly 150% faster (38,7 MH/s).
