@@ -2,8 +2,8 @@
 IntelliJ plugin for benchmarking various SHA-256 implementations.
 
 > [!NOTE]
-> This is supplementary material for the paper:  
-> TODO
+> This repository contains supplementary material to the following paper: 
+> ...
 
 ## Setup
 
@@ -11,31 +11,27 @@ IntelliJ plugin for benchmarking various SHA-256 implementations.
 2. Run `docker compose up -d`. 
 
 ## Plugin Usage
-To install the plugin, navigate to `File` -> `Settings` ->
-`Plugins` -> `⚙` -> `Manage Plugin Repositories`. Then, enter the url of the plugin
-repository ([`https://localhost:8443/`](https://localhost:8443)) and restart IntelliJ. After restarting, the `Tools` menu should have an item `Run Benchmark`:
+To install the plugin, navigate to `File` -> `Settings` -> `Plugins` -> `⚙` -> `Manage Plugin Repositories`. Then, enter the url of the plugin repository ([`https://localhost:8443/`](https://localhost:8443)) and restart IntelliJ. After restarting, the `Tools` menu should have an item `Run Benchmark`:
 
 ![run.png](run.png)
 
-After benchmarking has finished (~5 minutes), the results are shown along with instructions on how to send these by email to a configured email address. You can change the mail address in
-[ResultDialog.java](src/main/java/hashbench/benchmark/ResultDialog.java). If you do, remember to rebuild the docker image.
+After benchmarking has finished (~5 minutes), the results are shown along with instructions on how to send these by email to a configured email address. You can change the mail address in [ResultDialog.java](src/main/java/hashbench/benchmark/ResultDialog.java). If you do, remember to rebuild the docker image.
 
 ## Benchmarking Methodology
-Benchmarking is performed by iterative hashing on a constant input.
-The plugin measures the single-thread performance in hashes per second (H/s) of the following SHA-256 implementations:
+Benchmarking is performed by iterative hashing on a constant input. The plugin measures the single-thread performance in hashes per second (H/s) of the following SHA-256 implementations:
 
 - The implementation provided by the JRE used to run IntelliJ.
 - The third-party implementation of the [BouncyCastle](https://www.bouncycastle.org/) library.
 
-While there are other libraries  that offer SHA-256 implementations (such as [Google Guava](https://github.com/google/guava) and [Apache Commons Codec](https://commons.apache.org/proper/commons-codec/)), we decided to not consider them as these are wrappers around the implementation provided by the JRE.
+While there are other libraries  that offer SHA-256 implementations (such as [Google Guava](https://github.com/google/guava) and [Apache Commons Codec](https://commons.apache.org/proper/commons-codec/)), we decided to exclude them as these are wrappers around the implementation provided by the JRE.
 
 Benchmarking is subject to various non-deterministic factors that may bias the results. Thus, we:
 
-- run some iterations for each implementation as warm-up before measuring performance. (to address bias caused by system load, priming of caches, and JIT compilation)
-- keep references to the computed hashes although we are not interested in them. (to address bias caused by performance optimizations, such as statement reordering)
-- perform multiple runs in random order, where each run is performed in a new thread, with only one thread being running at any given time. After all runs are performed, we calculate the final hash rate by averaging the hash rates measured in each run. (to address bias caused by mapping Java threads to native threads on the operating system)
-- prompt to shutdown other programs before benchmarking. Moreover, we pause for 30 seconds between runs. (to address bias caused by system load)
-- use the `System.nanoTime()` method for measuring time. (to address bias caused by NTP clock adjustments)
+- run some iterations for each implementation as warm-up before measuring performance. (To address bias caused by system load, priming of caches, and JIT compilation)
+- keep references to the computed hashes although we are not interested in them. (To address bias caused by performance optimizations, such as statement reordering)
+- perform multiple runs in random order, where each run is performed in a new thread, with only one thread being running at any given time. After all runs are performed, we calculate the final hash rate by averaging the hash rates measured in each run. (To address bias caused by mapping Java threads to native threads on the operating system)
+- prompt to shutdown other programs before benchmarking. Moreover, we pause for 30 seconds between runs. (To address bias caused by system load)
+- use the `System.nanoTime()` method for measuring time. (To address bias caused by NTP clock adjustments)
 
 Before benchmarking, the plugin extracts various properties of the runtime environment. These include details about the operating system, hardware, and the JRE. To extract these properties, we use the [OSHI](https://github.com/oshi/oshi) library and the `System.getProperty()` method.
 
@@ -338,17 +334,13 @@ Before benchmarking, the plugin extracts various properties of the runtime envir
 
 
 ## Related tools
-As we have explained in our paper, many benchmarks were created without considering the
-overhead caused by the runtime environment. If you want to see how this affects performance, you can use
-[hashcat](https://hashcat.net/hashcat/). 
-The options that come closest to the benchmarking performed by this plugin are:
+As we have noted in our paper, benchmarks often do not capture the overhead caused by the runtime environment. If you want to see how the overhead affects performance, you can use [hashcat](https://hashcat.net/hashcat/). The options that come closest to the benchmarking performed by this plugin are:
 
 ```
 hashcat -m 1400 -D 1 -b --cpu-affinity=1 -w 1 # SHA2-256, kernel optimization disabled, single CPU
 ``` 
 
-
-Running this on an AMD Ryzen 7 PRO 5850U gave the following results:
+Running hashcat with these options on an AMD Ryzen 7 PRO 5850U gave the following results:
 
 ```
 hashcat (v6.2.6) starting in benchmark mode
@@ -403,6 +395,4 @@ While running the plugin gave these results:
 }
 ```
 
-
-When comparing the plugin (15.4 MH/s, JRESHA256) with hashcat (24.93 MH/s), we see that hashcat can
-be roughly 60% faster. We also ran hashcat with optimized kernel code and observed that it was roughly 150% faster (38,7 MH/s).
+When comparing the plugin (15.4 MH/s, JRESHA256) with hashcat (24.93 MH/s), we see that hashcat can be roughly 60% faster. We also ran hashcat with optimized kernel code and observed that it was roughly 150% faster (38,7 MH/s).
