@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine as pre
+FROM openjdk:17-jdk-alpine AS pre
 ARG URL
 
 WORKDIR /app
@@ -7,7 +7,7 @@ COPY . /app
 RUN apk add --no-cache bash freetype fontconfig ttf-dejavu gcompat tzdata openssl
 RUN ./gradlew buildPlugin && ./repo_xml.sh ${URL} > updatePlugins.xml
 
-FROM httpd:2.4 as final
+FROM httpd:2.4 AS final
 
 # generate self signed cert for apache
 # see the README for instructions on how to use your own
