@@ -372,6 +372,7 @@ Stopped: Wed Nov  6 22:21:49 2024
 While running the plugin gave these results:
 
 <details>
+
 ```json
 {
   "runsPerImpl": 5,
