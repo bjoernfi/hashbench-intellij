@@ -8,10 +8,10 @@ IntelliJ plugin for benchmarking various SHA-256 implementations.
 ## Setup
 
 1. Install Docker
-2. Run `docker compose up -d`. 
+2. Run `docker compose up`. 
 
 ## Plugin Usage
-To install the plugin, navigate to `File` -> `Settings` -> `Plugins` -> `⚙` -> `Manage Plugin Repositories`. Then, enter the url of the plugin repository ([`https://localhost:8443/`](https://localhost:8443)) and restart IntelliJ. After restarting, the `Tools` menu should have an item `Run Benchmark`:
+To install the plugin, navigate to `File` -> `Settings` -> `Plugins` -> `⚙` -> `Manage Plugin Repositories`. Add the url of the plugin repository ([`https://localhost:8443/`](https://localhost:8443)), click `OK`, and search for the plugin (`hashbench`). After installing, the `Tools` menu should have an item `Run Benchmark`:
 
 ![run.png](run.png)
 
