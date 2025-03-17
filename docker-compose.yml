@@ -1,0 +1,10 @@
+services:
+  hashbench:
+    build:
+      context: .
+      args:
+        URL: 'https://localhost:8443/latest'
+    environment:
+      TZ: Europe/Berlin
+    ports:
+      - '8443:443'
