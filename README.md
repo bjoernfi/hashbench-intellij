@@ -2,8 +2,14 @@
 IntelliJ plugin for benchmarking SHA-256 implementations.
 
 > [!NOTE]
-> This repository contains supplementary material of the following paper: 
-> ...
+> This repository contains supplementary material of the following paper:  
+>
+> Björn Fischer, Marc Stöttinger, Berit Barthelmes, Sven Eric Panitz, and Ralf
+Dörner. 2025. Credential-Based Pseudonym Generation for Programming
+Process Data Collection. In Proceedings of the 30th ACM Conference on
+Innovation and Technology in Computer Science Education V. 1 (ITiCSE 2025),
+June 27-July 2, 2025, Nijmegen, Netherlands. ACM, New York, NY, USA,
+7 pages. https://doi.org/10.1145/3724363.3729046
 
 ## Setup
 
