@@ -47,294 +47,63 @@ Before benchmarking, the plugin extracts various properties of the runtime envir
 
 ```json
 {
-  "runsPerImpl": 5,
-  "warmupRunsPerImpl": 1,
-  "iterations": 2500000,
-  "pauseBetweenRuns": 30000,
-  "input": "mmustermd8L_sA$9",
-  "results": [
-    {
-      "implementation": "BouncyCastleSHA256",
-      "hash": "3cd28e33a05b816fd9625048ed7d0466e640fae75b2c54058deff0ec2a7b962a",
-      "elapsedMillisecondsMean": 749.1354890199999,
-      "elapsedMillisecondsStd": 13.368216600274456,
-      "hashesPerSecondMean": 3338213.7143915812,
-      "hashesPerSecondStd": 57950.2041334752
+  "runsPerImpl" : 5,
+  "warmupRunsPerImpl" : 1,
+  "iterations" : 2500000,
+  "pauseBetweenRuns" : 30000,
+  "input" : "mmustermd8L_sA$9",
+  "results" : [ {
+    "implementation" : "BouncyCastleSHA256",
+    "hash" : "3cd28e33a05b816fd9625048ed7d0466e640fae75b2c54058deff0ec2a7b962a",
+    "elapsedMillisecondsMean" : 797.9108952,
+    "elapsedMillisecondsStd" : 57.502498423739915,
+    "hashesPerSecondMean" : 3148763.284934708,
+    "hashesPerSecondStd" : 216420.24883055998
+  }, {
+    "implementation" : "JRESHA256",
+    "hash" : "3cd28e33a05b816fd9625048ed7d0466e640fae75b2c54058deff0ec2a7b962a",
+    "elapsedMillisecondsMean" : 181.2744968,
+    "elapsedMillisecondsStd" : 15.159845621271868,
+    "hashesPerSecondMean" : 1.3883912406802397E7,
+    "hashesPerSecondStd" : 1108925.4312925213
+  } ],
+  "sysInfo" : {
+    "osFamily" : "Linux Mint",
+    "osManufacturer" : "GNU/Linux",
+    "cpu" : {
+      "maxFreq" : 4507000000,
+      "currentFreq" : [ 2695048000, 2695245000, 2145910000, 400000000, 2695012000, 400000000, 2152278000, 400000000, 2634659000, 2695025000, 2406864000, 400000000, 400000000, 2694996000, 400000000, 2487389000 ],
+      "contextSwitches" : 77001426,
+      "interrupts" : 52810181,
+      "systemCpuLoadTicks" : [ 8186060, 2540, 994260, 175853160, 70250, 0, 30350, 0 ],
+      "processorCpuLoadTicks" : [ [ 488220, 0, 62170, 10991530, 4430, 0, 17650, 0 ], [ 468790, 0, 30820, 11085300, 1370, 0, 230, 0 ], [ 398780, 0, 54310, 11118730, 3420, 0, 490, 0 ], [ 331340, 0, 26920, 11232190, 1460, 0, 90, 0 ], [ 896470, 150, 153260, 10475870, 11970, 0, 180, 0 ], [ 707150, 0, 74310, 10744590, 6310, 0, 810, 0 ], [ 387010, 0, 62410, 11121950, 4450, 0, 110, 0 ], [ 312840, 0, 29890, 11247160, 1290, 0, 100, 0 ], [ 522610, 70, 81100, 10937140, 5810, 0, 6560, 0 ], [ 494480, 0, 35010, 11059940, 1780, 0, 100, 0 ], [ 405610, 0, 58480, 11075130, 3650, 0, 3510, 0 ], [ 360510, 0, 28600, 11201110, 1290, 0, 80, 0 ], [ 860150, 2220, 143010, 10530240, 12160, 0, 150, 0 ], [ 695030, 10, 55190, 10832470, 4760, 0, 80, 0 ], [ 468480, 40, 68620, 11027500, 4640, 0, 110, 0 ], [ 388510, 0, 30090, 11172240, 1400, 0, 40, 0 ] ],
+      "physicalPackageCount" : 1,
+      "physicalProcessorCount" : 8,
+      "logicalProcessorCount" : 16
     },
-    {
-      "implementation": "JRESHA256",
-      "hash": "3cd28e33a05b816fd9625048ed7d0466e640fae75b2c54058deff0ec2a7b962a",
-      "elapsedMillisecondsMean": 162.13316344,
-      "elapsedMillisecondsStd": 3.203018146042761,
-      "hashesPerSecondMean": 1.542536318794936e7,
-      "hashesPerSecondStd": 300719.91718990944
-    }
-  ],
-  "sysInfo": {
-    "osFamily": "Linux Mint",
-    "osManufacturer": "GNU/Linux",
-    "osVersion": {
-      "version": "22",
-      "codeName": "Wilma",
-      "buildNumber": "6.8.0-45-generic"
-    },
-    "computerSystem": {
-      "firmware": {
-        "manufacturer": "unknown",
-        "description": "dmi:bvnLENOVO:bvrR1MET57W(1.27):bd06/03/2024:br1.27:efr1.27:svnLENOVO:pn21A0005EGE:pvrThinkPadP14sGen2a:rvnLENOVO:rn21A0005EGE:rvrSDK0J40697WIN:cvnLENOVO:ct10:cvrNone:skuLENOVO_MT_21A0_BU_Think_FM_ThinkPadP14sGen2a:",
-        "version": "R1MET57W (1.27 )",
-        "releaseDate": "2024-06-03",
-        "name": "unknown"
+    "memory" : {
+      "total" : 29237997568,
+      "virtualMemory" : {
+        "virtualInUse" : 11252568064,
+        "swapPagesIn" : 0,
+        "swapPagesOut" : 4,
+        "swapTotal" : 2147479552,
+        "swapUsed" : 524288,
+        "virtualMax" : 16766476288
       },
-      "baseboard": {
-        "manufacturer": "LENOVO",
-        "model": "21A0005EGE",
-        "version": "SDK0J40697 WIN"
-      },
-      "manufacturer": "LENOVO",
-      "model": "21A0005EGE (version: ThinkPad P14s Gen 2a)"
+      "pageSize" : 4096,
+      "available" : 17985953792,
+      "physicalMemory" : [ ]
     },
-    "cpu": {
-      "maxFreq": 4507000000,
-      "currentFreq": [
-        3253165000, 3109522000, 3251281000, 400000000, 3144334000, 3289603000,
-        3872273000, 3632463000, 3967473000, 3967444000, 3177580000, 400000000,
-        3972012000, 3285445000, 3232462000, 3034059000
-      ],
-      "contextSwitches": 2101660821,
-      "interrupts": 1139219723,
-      "systemCpuLoadTicks": [
-        60415650, 57600, 18175570, 2859478430, 1894720, 0, 801980, 0
-      ],
-      "processorCpuLoadTicks": [
-        [4179680, 5000, 1310660, 177609580, 164230, 0, 506510, 0],
-        [3442770, 9310, 906830, 179536360, 79350, 0, 9090, 0],
-        [4288610, 860, 1376240, 177678980, 160730, 0, 34610, 0],
-        [3402250, 1090, 828430, 179791870, 74450, 0, 2710, 0],
-        [4336420, 4480, 1328770, 177894430, 162220, 0, 5230, 0],
-        [3082420, 2050, 939410, 179272530, 81310, 0, 2290, 0],
-        [4189120, 4100, 1657290, 177664410, 161100, 0, 10770, 0],
-        [3331790, 2290, 1081130, 179421940, 67110, 0, 10070, 0],
-        [4078610, 2230, 1348200, 177953420, 157800, 0, 33110, 0],
-        [3358170, 1720, 817210, 179743310, 64110, 0, 73380, 0],
-        [4212490, 4770, 1394410, 177802280, 163890, 0, 31520, 0],
-        [3310150, 7930, 844670, 179725840, 73620, 0, 32550, 0],
-        [4215370, 1680, 1394550, 177796540, 163610, 0, 25150, 0],
-        [3318340, 3880, 831950, 179873980, 83200, 0, 2970, 0],
-        [4251090, 3930, 1345080, 177861370, 167190, 0, 19070, 0],
-        [3418320, 2200, 770680, 179851520, 70720, 0, 2870, 0]
-      ],
-      "physicalPackageCount": 1,
-      "physicalProcessorCount": 8,
-      "logicalProcessorCount": 16,
-      "logicalProcessors": [
-        {
-          "processorNumber": 0,
-          "physicalProcessorNumber": 0,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 1,
-          "physicalProcessorNumber": 0,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 2,
-          "physicalProcessorNumber": 1,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 3,
-          "physicalProcessorNumber": 1,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 4,
-          "physicalProcessorNumber": 2,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 5,
-          "physicalProcessorNumber": 2,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 6,
-          "physicalProcessorNumber": 3,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 7,
-          "physicalProcessorNumber": 3,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 8,
-          "physicalProcessorNumber": 4,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 9,
-          "physicalProcessorNumber": 4,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 10,
-          "physicalProcessorNumber": 5,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 11,
-          "physicalProcessorNumber": 5,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 12,
-          "physicalProcessorNumber": 6,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 13,
-          "physicalProcessorNumber": 6,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 14,
-          "physicalProcessorNumber": 7,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        },
-        {
-          "processorNumber": 15,
-          "physicalProcessorNumber": 7,
-          "physicalPackageNumber": 0,
-          "numaNode": 0,
-          "processorGroup": 0
-        }
-      ],
-      "physicalProcessors": [
-        {
-          "physicalPackageNumber": 0,
-          "physicalProcessorNumber": 0,
-          "efficiency": 0,
-          "idString": "cpu:type:x86,ven0002fam0019mod0050:feature:,0000,0001,0002,0003,0004,0005,0006,0007,0008,0009,000B,000C,000D,000E,000F,0010,0011,0013,0017,0018,0019,001A,001C,0020,0021,0022,0023,0024,0025,0026,0027,0028,0029,002B,002C,002D,002E,002F,0030,0031,0034,0036,0037,0038,0039,003A,003B,003D,0064,0068,006E,0070,0074,0075,0078,0079,007A,007C,007D,0080,0081,0083,0089,008C,008D,0093,0094,0096,0097,0099,009A,009B,009C,009D,009E,00C0,00C1,00C2,00C3,00C4,00C5,00C6,00C7,00C8,00C9,00CA,00CC,00CD,00D1,00D6,00D7,00D8,00DA,00DC,00DD,00DE,00E2,00E4,00E6,00E8,00EA,00ED,00F0,00F1,00F2,00F3,00F5,00F6,00F9,00FA,00FB,00FC,010F,0120,0123,0125,0127,0128,0129,012A,012C,012F,0132,0133,0134,0137,0138,013D,0140,0141,0142,0143,0160,0161,0162,0163,0165,016C,016E,016F,0177,0179,017D,018B,01A0,01A1,01A2,01A4,01A6,01A9,01AA,01AC,01AD,01AE,01AF,01B1,01B2,01B3,01B4,01B8,01BB,01BC,01BD,01C2,01E0,01E1,01E2,01E3,01E4,01E5,01E6,01E7,01EA,01EB,01EC,01ED,01EF,01F0,01F1,01F3,01F4,01FC,0202,0203,0204,0207,0209,020A,0216,0220,0221,0223,0224,0225,0244,0262,026B,026C,026D,026E,0270,0280,0282,0283,0286,029B,029C"
-        },
-        {
-          "physicalPackageNumber": 0,
-          "physicalProcessorNumber": 1,
-          "efficiency": 0,
-          "idString": "cpu:type:x86,ven0002fam0019mod0050:feature:,0000,0001,0002,0003,0004,0005,0006,0007,0008,0009,000B,000C,000D,000E,000F,0010,0011,0013,0017,0018,0019,001A,001C,0020,0021,0022,0023,0024,0025,0026,0027,0028,0029,002B,002C,002D,002E,002F,0030,0031,0034,0036,0037,0038,0039,003A,003B,003D,0064,0068,006E,0070,0074,0075,0078,0079,007A,007C,007D,0080,0081,0083,0089,008C,008D,0093,0094,0096,0097,0099,009A,009B,009C,009D,009E,00C0,00C1,00C2,00C3,00C4,00C5,00C6,00C7,00C8,00C9,00CA,00CC,00CD,00D1,00D6,00D7,00D8,00DA,00DC,00DD,00DE,00E2,00E4,00E6,00E8,00EA,00ED,00F0,00F1,00F2,00F3,00F5,00F6,00F9,00FA,00FB,00FC,010F,0120,0123,0125,0127,0128,0129,012A,012C,012F,0132,0133,0134,0137,0138,013D,0140,0141,0142,0143,0160,0161,0162,0163,0165,016C,016E,016F,0177,0179,017D,018B,01A0,01A1,01A2,01A4,01A6,01A9,01AA,01AC,01AD,01AE,01AF,01B1,01B2,01B3,01B4,01B8,01BB,01BC,01BD,01C2,01E0,01E1,01E2,01E3,01E4,01E5,01E6,01E7,01EA,01EB,01EC,01ED,01EF,01F0,01F1,01F3,01F4,01FC,0202,0203,0204,0207,0209,020A,0216,0220,0221,0223,0224,0225,0244,0262,026B,026C,026D,026E,0270,0280,0282,0283,0286,029B,029C"
-        },
-        {
-          "physicalPackageNumber": 0,
-          "physicalProcessorNumber": 2,
-          "efficiency": 0,
-          "idString": "cpu:type:x86,ven0002fam0019mod0050:feature:,0000,0001,0002,0003,0004,0005,0006,0007,0008,0009,000B,000C,000D,000E,000F,0010,0011,0013,0017,0018,0019,001A,001C,0020,0021,0022,0023,0024,0025,0026,0027,0028,0029,002B,002C,002D,002E,002F,0030,0031,0034,0036,0037,0038,0039,003A,003B,003D,0064,0068,006E,0070,0074,0075,0078,0079,007A,007C,007D,0080,0081,0083,0089,008C,008D,0093,0094,0096,0097,0099,009A,009B,009C,009D,009E,00C0,00C1,00C2,00C3,00C4,00C5,00C6,00C7,00C8,00C9,00CA,00CC,00CD,00D1,00D6,00D7,00D8,00DA,00DC,00DD,00DE,00E2,00E4,00E6,00E8,00EA,00ED,00F0,00F1,00F2,00F3,00F5,00F6,00F9,00FA,00FB,00FC,010F,0120,0123,0125,0127,0128,0129,012A,012C,012F,0132,0133,0134,0137,0138,013D,0140,0141,0142,0143,0160,0161,0162,0163,0165,016C,016E,016F,0177,0179,017D,018B,01A0,01A1,01A2,01A4,01A6,01A9,01AA,01AC,01AD,01AE,01AF,01B1,01B2,01B3,01B4,01B8,01BB,01BC,01BD,01C2,01E0,01E1,01E2,01E3,01E4,01E5,01E6,01E7,01EA,01EB,01EC,01ED,01EF,01F0,01F1,01F3,01F4,01FC,0202,0203,0204,0207,0209,020A,0216,0220,0221,0223,0224,0225,0244,0262,026B,026C,026D,026E,0270,0280,0282,0283,0286,029B,029C"
-        },
-        {
-          "physicalPackageNumber": 0,
-          "physicalProcessorNumber": 3,
-          "efficiency": 0,
-          "idString": "cpu:type:x86,ven0002fam0019mod0050:feature:,0000,0001,0002,0003,0004,0005,0006,0007,0008,0009,000B,000C,000D,000E,000F,0010,0011,0013,0017,0018,0019,001A,001C,0020,0021,0022,0023,0024,0025,0026,0027,0028,0029,002B,002C,002D,002E,002F,0030,0031,0034,0036,0037,0038,0039,003A,003B,003D,0064,0068,006E,0070,0074,0075,0078,0079,007A,007C,007D,0080,0081,0083,0089,008C,008D,0093,0094,0096,0097,0099,009A,009B,009C,009D,009E,00C0,00C1,00C2,00C3,00C4,00C5,00C6,00C7,00C8,00C9,00CA,00CC,00CD,00D1,00D6,00D7,00D8,00DA,00DC,00DD,00DE,00E2,00E4,00E6,00E8,00EA,00ED,00F0,00F1,00F2,00F3,00F5,00F6,00F9,00FA,00FB,00FC,010F,0120,0123,0125,0127,0128,0129,012A,012C,012F,0132,0133,0134,0137,0138,013D,0140,0141,0142,0143,0160,0161,0162,0163,0165,016C,016E,016F,0177,0179,017D,018B,01A0,01A1,01A2,01A4,01A6,01A9,01AA,01AC,01AD,01AE,01AF,01B1,01B2,01B3,01B4,01B8,01BB,01BC,01BD,01C2,01E0,01E1,01E2,01E3,01E4,01E5,01E6,01E7,01EA,01EB,01EC,01ED,01EF,01F0,01F1,01F3,01F4,01FC,0202,0203,0204,0207,0209,020A,0216,0220,0221,0223,0224,0225,0244,0262,026B,026C,026D,026E,0270,0280,0282,0283,0286,029B,029C"
-        },
-        {
-          "physicalPackageNumber": 0,
-          "physicalProcessorNumber": 4,
-          "efficiency": 0,
-          "idString": "cpu:type:x86,ven0002fam0019mod0050:feature:,0000,0001,0002,0003,0004,0005,0006,0007,0008,0009,000B,000C,000D,000E,000F,0010,0011,0013,0017,0018,0019,001A,001C,0020,0021,0022,0023,0024,0025,0026,0027,0028,0029,002B,002C,002D,002E,002F,0030,0031,0034,0036,0037,0038,0039,003A,003B,003D,0064,0068,006E,0070,0074,0075,0078,0079,007A,007C,007D,0080,0081,0083,0089,008C,008D,0093,0094,0096,0097,0099,009A,009B,009C,009D,009E,00C0,00C1,00C2,00C3,00C4,00C5,00C6,00C7,00C8,00C9,00CA,00CC,00CD,00D1,00D6,00D7,00D8,00DA,00DC,00DD,00DE,00E2,00E4,00E6,00E8,00EA,00ED,00F0,00F1,00F2,00F3,00F5,00F6,00F9,00FA,00FB,00FC,010F,0120,0123,0125,0127,0128,0129,012A,012C,012F,0132,0133,0134,0137,0138,013D,0140,0141,0142,0143,0160,0161,0162,0163,0165,016C,016E,016F,0177,0179,017D,018B,01A0,01A1,01A2,01A4,01A6,01A9,01AA,01AC,01AD,01AE,01AF,01B1,01B2,01B3,01B4,01B8,01BB,01BC,01BD,01C2,01E0,01E1,01E2,01E3,01E4,01E5,01E6,01E7,01EA,01EB,01EC,01ED,01EF,01F0,01F1,01F3,01F4,01FC,0202,0203,0204,0207,0209,020A,0216,0220,0221,0223,0224,0225,0244,0262,026B,026C,026D,026E,0270,0280,0282,0283,0286,029B,029C"
-        },
-        {
-          "physicalPackageNumber": 0,
-          "physicalProcessorNumber": 5,
-          "efficiency": 0,
-          "idString": "cpu:type:x86,ven0002fam0019mod0050:feature:,0000,0001,0002,0003,0004,0005,0006,0007,0008,0009,000B,000C,000D,000E,000F,0010,0011,0013,0017,0018,0019,001A,001C,0020,0021,0022,0023,0024,0025,0026,0027,0028,0029,002B,002C,002D,002E,002F,0030,0031,0034,0036,0037,0038,0039,003A,003B,003D,0064,0068,006E,0070,0074,0075,0078,0079,007A,007C,007D,0080,0081,0083,0089,008C,008D,0093,0094,0096,0097,0099,009A,009B,009C,009D,009E,00C0,00C1,00C2,00C3,00C4,00C5,00C6,00C7,00C8,00C9,00CA,00CC,00CD,00D1,00D6,00D7,00D8,00DA,00DC,00DD,00DE,00E2,00E4,00E6,00E8,00EA,00ED,00F0,00F1,00F2,00F3,00F5,00F6,00F9,00FA,00FB,00FC,010F,0120,0123,0125,0127,0128,0129,012A,012C,012F,0132,0133,0134,0137,0138,013D,0140,0141,0142,0143,0160,0161,0162,0163,0165,016C,016E,016F,0177,0179,017D,018B,01A0,01A1,01A2,01A4,01A6,01A9,01AA,01AC,01AD,01AE,01AF,01B1,01B2,01B3,01B4,01B8,01BB,01BC,01BD,01C2,01E0,01E1,01E2,01E3,01E4,01E5,01E6,01E7,01EA,01EB,01EC,01ED,01EF,01F0,01F1,01F3,01F4,01FC,0202,0203,0204,0207,0209,020A,0216,0220,0221,0223,0224,0225,0244,0262,026B,026C,026D,026E,0270,0280,0282,0283,0286,029B,029C"
-        },
-        {
-          "physicalPackageNumber": 0,
-          "physicalProcessorNumber": 6,
-          "efficiency": 0,
-          "idString": "cpu:type:x86,ven0002fam0019mod0050:feature:,0000,0001,0002,0003,0004,0005,0006,0007,0008,0009,000B,000C,000D,000E,000F,0010,0011,0013,0017,0018,0019,001A,001C,0020,0021,0022,0023,0024,0025,0026,0027,0028,0029,002B,002C,002D,002E,002F,0030,0031,0034,0036,0037,0038,0039,003A,003B,003D,0064,0068,006E,0070,0074,0075,0078,0079,007A,007C,007D,0080,0081,0083,0089,008C,008D,0093,0094,0096,0097,0099,009A,009B,009C,009D,009E,00C0,00C1,00C2,00C3,00C4,00C5,00C6,00C7,00C8,00C9,00CA,00CC,00CD,00D1,00D6,00D7,00D8,00DA,00DC,00DD,00DE,00E2,00E4,00E6,00E8,00EA,00ED,00F0,00F1,00F2,00F3,00F5,00F6,00F9,00FA,00FB,00FC,010F,0120,0123,0125,0127,0128,0129,012A,012C,012F,0132,0133,0134,0137,0138,013D,0140,0141,0142,0143,0160,0161,0162,0163,0165,016C,016E,016F,0177,0179,017D,018B,01A0,01A1,01A2,01A4,01A6,01A9,01AA,01AC,01AD,01AE,01AF,01B1,01B2,01B3,01B4,01B8,01BB,01BC,01BD,01C2,01E0,01E1,01E2,01E3,01E4,01E5,01E6,01E7,01EA,01EB,01EC,01ED,01EF,01F0,01F1,01F3,01F4,01FC,0202,0203,0204,0207,0209,020A,0216,0220,0221,0223,0224,0225,0244,0262,026B,026C,026D,026E,0270,0280,0282,0283,0286,029B,029C"
-        },
-        {
-          "physicalPackageNumber": 0,
-          "physicalProcessorNumber": 7,
-          "efficiency": 0,
-          "idString": "cpu:type:x86,ven0002fam0019mod0050:feature:,0000,0001,0002,0003,0004,0005,0006,0007,0008,0009,000B,000C,000D,000E,000F,0010,0011,0013,0017,0018,0019,001A,001C,0020,0021,0022,0023,0024,0025,0026,0027,0028,0029,002B,002C,002D,002E,002F,0030,0031,0034,0036,0037,0038,0039,003A,003B,003D,0064,0068,006E,0070,0074,0075,0078,0079,007A,007C,007D,0080,0081,0083,0089,008C,008D,0093,0094,0096,0097,0099,009A,009B,009C,009D,009E,00C0,00C1,00C2,00C3,00C4,00C5,00C6,00C7,00C8,00C9,00CA,00CC,00CD,00D1,00D6,00D7,00D8,00DA,00DC,00DD,00DE,00E2,00E4,00E6,00E8,00EA,00ED,00F0,00F1,00F2,00F3,00F5,00F6,00F9,00FA,00FB,00FC,010F,0120,0123,0125,0127,0128,0129,012A,012C,012F,0132,0133,0134,0137,0138,013D,0140,0141,0142,0143,0160,0161,0162,0163,0165,016C,016E,016F,0177,0179,017D,018B,01A0,01A1,01A2,01A4,01A6,01A9,01AA,01AC,01AD,01AE,01AF,01B1,01B2,01B3,01B4,01B8,01BB,01BC,01BD,01C2,01E0,01E1,01E2,01E3,01E4,01E5,01E6,01E7,01EA,01EB,01EC,01ED,01EF,01F0,01F1,01F3,01F4,01FC,0202,0203,0204,0207,0209,020A,0216,0220,0221,0223,0224,0225,0244,0262,026B,026C,026D,026E,0270,0280,0282,0283,0286,029B,029C"
-        }
-      ],
-      "processorIdentifier": {
-        "cpu64bit": true,
-        "microarchitecture": "Zen 3",
-        "stepping": "0",
-        "vendorFreq": 4507000000,
-        "vendor": "AuthenticAMD",
-        "identifier": "AuthenticAMD Family 25 Model 80 Stepping 0",
-        "family": "25",
-        "model": "80",
-        "name": "AMD Ryzen 7 PRO 5850U with Radeon Graphics"
-      }
-    },
-    "memory": {
-      "total": 29237960704,
-      "virtualMemory": {
-        "swapPagesIn": 52927,
-        "swapPagesOut": 394458,
-        "swapTotal": 2147479552,
-        "swapUsed": 904048640,
-        "virtualMax": 16766459904,
-        "virtualInUse": 15526797312
-      },
-      "pageSize": 4096,
-      "available": 14615212032,
-      "physicalMemory": []
-    },
-    "gpu": [
-      {
-        "name": "Cezanne [Radeon Vega Series / Radeon Vega Mobile Series]",
-        "deviceId": "0x1638",
-        "vendor": "Advanced Micro Devices, Inc. [AMD/ATI] (0x1002)",
-        "versionInfo": "unknown",
-        "vram": 270532608
-      }
-    ],
-    "java": {
-      "java.vendor": "JetBrains s.r.o.",
-      "java.vm.specification.vendor": "Oracle Corporation",
-      "java.version": "17.0.7",
-      "java.vm.version": "17.0.7+7-b1000.6",
-      "java.vm.name": "OpenJDK 64-Bit Server VM",
-      "java.vm.specification.version": "17",
-      "java.vm.specification.name": "Java Virtual Machine Specification",
-      "java.vm.vendor": "JetBrains s.r.o."
+    "java" : {
+      "java.vendor" : "JetBrains s.r.o.",
+      "java.vm.specification.vendor" : "Oracle Corporation",
+      "java.version" : "17.0.7",
+      "java.vm.version" : "17.0.7+7-b1000.6",
+      "java.vm.name" : "OpenJDK 64-Bit Server VM",
+      "java.vm.specification.version" : "17",
+      "java.vm.specification.name" : "Java Virtual Machine Specification",
+      "java.vm.vendor" : "JetBrains s.r.o."
     }
   }
 }

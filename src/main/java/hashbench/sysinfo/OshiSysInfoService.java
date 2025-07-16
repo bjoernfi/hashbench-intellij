@@ -8,6 +8,8 @@ import oshi.SystemInfo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public final class OshiSysInfoService implements SysInfoService {
@@ -20,9 +22,14 @@ public final class OshiSysInfoService implements SysInfoService {
         // we can't modify SysInfo objects, so we convert it to a map
         var sysInfoMap = objectMapper.convertValue(sysInfo, new TypeReference<Map<String, Object>>() {});
 
-        // depending on the operating system and user permissions, there may be sensitive data
-        // (e.g. serial number of various hardware components).
-        removeKeys(sysInfoMap, List.of("serialNumber", "hardwareUUID", "processorID"));
+        removeKeys(sysInfoMap, List.of(
+                // depending on the operating system and user permissions, there may be sensitive data
+                // (e.g. serial number of various hardware components).
+                "serialNumber", "hardwareUUID", "processorID",
+
+                // we don't need this
+                "osVersion", "computerSystem", "cpu.logicalProcessors",
+                "cpu.processorIdentifier", "cpu.physicalProcessors", "gpu"));
 
         return sysInfoMap;
     }
@@ -52,23 +59,30 @@ public final class OshiSysInfoService implements SysInfoService {
         return new SysInfo(osFamily, osManufacturer, osVersion, computerSystem, cpu, memory, gpu, java);
     }
 
+    private void removeKeys(Map<String, Object> map, List<String> keys) {
+        removeKeys(map, keys, "");
+    }
+
     /**
      * recursively walks all key-value pairs in the given map and removes the pair from
      * the map if the key is present in the given keys.
      */
-    private void removeKeys(Map<String, Object> map, List<String> keys) {
+    private void removeKeys(Map<String, Object> map, List<String> keys, String path) {
         var iterator = map.entrySet().iterator();
 
         while (iterator.hasNext()) {
             var entry = iterator.next();
             var key = entry.getKey();
             var value = entry.getValue();
+            var keyPath = Stream.of(path, key)
+                    .filter(s -> !s.isEmpty())
+                    .collect(Collectors.joining("."));
 
             if (value instanceof Map<?, ?> nestedMap) {
-                removeKeys((Map<String, Object>) nestedMap, keys);
+                removeKeys((Map<String, Object>) nestedMap, keys, keyPath);
             }
 
-            if (keys.contains(key)) {
+            if (keys.contains(key) || keys.contains(keyPath)) {
                 iterator.remove();
             }
         }
